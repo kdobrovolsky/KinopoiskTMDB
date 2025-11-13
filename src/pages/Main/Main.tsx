@@ -25,7 +25,7 @@ export const Main = () => {
     const handleSearchSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if(searchQuery.trim()){
-            navigate(`/search?query =${encodeURIComponent(searchQuery)}`);
+            navigate(`/search?query=${encodeURIComponent(searchQuery)}`);
         }
     }
 
@@ -55,6 +55,7 @@ export const Main = () => {
                         <button
                             type="submit"
                             className={s.searchButton}
+                            disabled={!searchQuery.trim().length}
                         >
                             Search
                         </button>
@@ -63,9 +64,30 @@ export const Main = () => {
 
             </section>
 
-            <div className={s.mainContent}>
-                <h2 className={s.mainTitle}>Main Content</h2>
-            </div>
+            <section className={s.mainContent}>
+                <h2 className={s.mainTitle}>Popular Movies</h2>
+                <div className={s.moviesGrid}>
+                    {data?.results.slice(0,6).map(movie => {
+                        return (
+                            <div key={movie.id} className={s.movieCard}>
+                                {movie.poster_path ? (
+                                    <img
+                                        src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
+                                        alt={movie.title}
+                                        className={s.moviePoster}
+                                    />
+                                ) : (
+                                    <div className={s.posterPlaceholder}>
+                                        No image
+                                    </div>
+                                )}
+                                <h3 className={s.movieTitle}>{movie.title}</h3>
+                                <p className={s.movieRating}>{movie.vote_average}</p>
+                            </div>
+                        )
+                    })}
+                </div>
+            </section>
         </div>
     );
 };
