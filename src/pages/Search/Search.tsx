@@ -1,6 +1,8 @@
-import s from "@/pages/Main/Main.module.css";
 import {type ChangeEvent, type FormEvent, useState} from "react";
 import {useLazyFetchSearchMoviesQuery} from "@/features/api/tmdbApi.ts";
+import {MovieCard} from "@/pages/CategoryMovies/MovieCard/MovieCard.tsx";
+import {SearchForm} from "@/shared/SearchForm/SearchForm.tsx";
+import s from './Search.module.css'
 
 export const Search = () => {
     const [searchQuery, setSearchQuery] = useState('');
@@ -13,61 +15,37 @@ export const Search = () => {
             await triggerSearch({query:searchQuery})
         }
     };
+
+
+
     const handleSearchInput = (e: ChangeEvent<HTMLInputElement>) => {
         setSearchQuery(e.target.value);
     };
 
+    const hasResults = !!(data?.results?.length);
 
     return (
-      <div>
-          <h2>Search Results</h2>
-          <form onSubmit={handleSearchSubmit} className={s.searchForm}>
-              <input
-                  type="text"
-                  value={searchQuery}
-                  onChange={handleSearchInput}
-                  placeholder="Search for movies..."
-                  className={s.searchInput}
-              />
-              <button
-                  type="submit"
-                  className={s.searchButton}
-                  disabled={!searchQuery.trim()}
-              >
-                  Search
-              </button>
-          </form>
-          <div className={s.moviesGrid}>
-              {data?.results.map((movie) => (
-                  <article key={movie.id} className={s.movieCard}>
-                      {movie.poster_path ? (
-                          <img
-                              src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
-                              alt={movie.title}
-                              className={s.moviePoster}
-                              loading="lazy"
-                          />
-                      ) : (
-                          <div className={s.posterPlaceholder}>
-                              No Image
-                          </div>
-                      )}
+      <div className={s.container}>
+          <h2 className={s.title}>Search Results</h2>
+          <SearchForm handleSearchSubmit={handleSearchSubmit} handleSearchInput={handleSearchInput} searchQuery={searchQuery} />
+          {!searchQuery && (
+              <p className={s.emptyState}>Enter a movie title to start searching.</p>
+          )}
 
+          {searchQuery.length > 0 && hasResults && (
+              <div>
+                  <h2 className={s.resultsTitle}>{`Results for "${searchQuery}"`}</h2>
+                  <MovieCard data={data}/>
+              </div>
+          )}
 
-                      <div
-                          className={`${s.movieRatingOverlay} ${
-                              movie.vote_average >= 7 ? s.high :
-                                  movie.vote_average >= 5 ? s.medium : s.low
-                          }`}
-                      >
-                          {movie.vote_average.toFixed(1)}
-                      </div>
-                      <div className={s.movieInfo}>
-                          <h3 className={s.movieTitle}>{movie.title}</h3>
-                      </div>
-                  </article>
-              ))}
-          </div>
+          {searchQuery.length > 0 && !hasResults && (
+              <div>
+                  <h2 className={s.resultsTitle}>{`Results for "${searchQuery}"`}</h2>
+                  <p className={s.noResults}>No matches found for "{searchQuery}"</p>
+              </div>
+
+          )}
       </div>
     )
 }

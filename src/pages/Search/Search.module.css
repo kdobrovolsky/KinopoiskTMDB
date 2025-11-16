@@ -1,0 +1,50 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    min-height: 80vh;
+}
+
+.title {
+    margin-bottom: 2rem;
+    color: #fafafa;
+    font-size: 2.25rem;
+    font-weight: 700;
+}
+
+.resultsTitle {
+    margin: 1.5rem 0;
+    color: #9caabb;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.emptyState {
+
+    padding: 0.5rem 2rem;
+    color: #718096;
+    font-size: 1.125rem;
+
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .title {
+        font-size: 1.875rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .resultsTitle {
+        font-size: 1.25rem;
+        margin: 1.5rem 0;
+    }
+
+    .emptyState {
+        padding: 2rem 1rem;
+        font-size: 1rem;
+    }
+}

@@ -3,6 +3,7 @@ import {type ChangeEvent, type FormEvent, useEffect, useState} from "react";
 import type {TMDBMovie} from "@/features/api/tmdbApi.types.ts";
 import {useNavigate} from "react-router-dom";
 import {useFetchPopularMoviesQuery} from "@/features/api/tmdbApi.ts";
+import {SearchForm} from "@/shared/SearchForm/SearchForm.tsx";
 
 
 export const MainHeader = () => {
@@ -43,23 +44,7 @@ export const MainHeader = () => {
             <div className={s.welcomeContent}>
                 <h1 className={s.title}>Welcome to MovieDB</h1>
                 <p className={s.subtitle}>Now playing: {randomMovie?.title}</p>
-
-                <form onSubmit={handleSearchSubmit} className={s.searchForm}>
-                    <input
-                        type="text"
-                        value={searchQuery}
-                        onChange={handleSearchInput}
-                        placeholder="Search for movies..."
-                        className={s.searchInput}
-                    />
-                    <button
-                        type="submit"
-                        className={s.searchButton}
-                        disabled={!searchQuery.trim()}
-                    >
-                        Search
-                    </button>
-                </form>
+                <SearchForm handleSearchInput={handleSearchInput} handleSearchSubmit={handleSearchSubmit} searchQuery={searchQuery} />
             </div>
         </section>
     )
