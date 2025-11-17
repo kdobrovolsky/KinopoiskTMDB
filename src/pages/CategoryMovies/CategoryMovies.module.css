@@ -58,6 +58,7 @@
 }
 
 .movieCard {
+    position: relative; /* Добавляем для позиционирования кнопки */
     background: var(--bg-secondary);
     border-radius: 16px;
     overflow: hidden;
@@ -104,6 +105,7 @@
     display: flex;
     align-items: center;
     gap: 0.25rem;
+    z-index: 2;
 }
 
 .movieRatingOverlay.high {
@@ -191,6 +193,50 @@
     .posterPlaceholder {
         height: 250px;
     }
+
+    .movieRatingOverlay {
+        top: 0.75rem;
+        right: 0.75rem;
+        padding: 0.4rem 0.6rem;
+        font-size: 0.8rem;
+    }
+}
+
+.favoriteButton {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+.movieCard:hover .favoriteButton {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.favoriteButton:hover {
+    background: rgba(255, 0, 0, 0.9);
+    transform: scale(1.1) !important;
+}
+
+.favoriteButton.active {
+    background: rgba(255, 0, 0, 0.9);
+    opacity: 1;
+    transform: scale(1);
 }
 
 @media (max-width: 480px) {
@@ -214,5 +260,12 @@
 
     .categoryTitle {
         font-size: 1.75rem;
+    }
+
+    .movieRatingOverlay {
+        top: 0.5rem;
+        right: 0.5rem;
+        padding: 0.3rem 0.5rem;
+        font-size: 0.75rem;
     }
 }

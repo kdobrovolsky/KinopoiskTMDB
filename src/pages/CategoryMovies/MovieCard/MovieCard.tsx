@@ -1,15 +1,32 @@
 import s from "@/pages/CategoryMovies/CategoryMovies.module.css";
-import {RATING_THRESHOLDS} from "@/shared";
-import type {TMDBMoviesResponse} from "@/features/api/tmdbApi.types.ts";
+import {RATING_THRESHOLDS, useFavorites} from "@/shared";
+import type {TMDBMovie, TMDBMoviesResponse} from "@/features/api/tmdbApi.types.ts";
 
 type PropsMovieCard = {
     data: TMDBMoviesResponse | undefined
+    limit?: number;
+    className?: string;
 }
 
-export const MovieCard = ({data}:PropsMovieCard) => {
+export const MovieCard = ({data,limit,className}:PropsMovieCard) => {
+    const movies = limit ? data?.results.slice(0, limit) : data?.results;
+    const {isFavorite, addFavorite, removeFavorite} = useFavorites();
+
+    const handleFavoriteClick = (movie: TMDBMovie) => {
+    if(isFavorite(movie.id)) {
+        removeFavorite(movie.id);
+    }else {
+        addFavorite({
+            id: movie.id,
+            title: movie.title,
+            poster: movie.poster_path,
+            voteAverage: movie.vote_average
+        });
+    }
+    }
     return(
-        <div className={s.moviesGrid}>
-            {data?.results.map((movie) => (
+        <div className={className ? className : s.moviesGrid}>
+            {movies?.map((movie) => (
                 <article key={movie.id} className={s.movieCard}>
                     {movie.poster_path ? (
                         <img
@@ -17,13 +34,20 @@ export const MovieCard = ({data}:PropsMovieCard) => {
                             alt={movie.title}
                             className={s.moviePoster}
                             loading="lazy"
+
                         />
+
                     ) : (
                         <div className={s.posterPlaceholder}>
                             No Image
                         </div>
                     )}
-
+                    <button
+                        onClick={() => handleFavoriteClick(movie)}
+                        className={`${s.favoriteButton} ${isFavorite(movie.id) ? s.active : ''}`}
+                    >
+                        {isFavorite(movie.id) ? '❤️' : '🤍'}
+                    </button>
                     <div
                         className={`${s.movieRatingOverlay} ${
                             movie.vote_average >= RATING_THRESHOLDS.HIGH ? s.high :
@@ -35,6 +59,7 @@ export const MovieCard = ({data}:PropsMovieCard) => {
                     <div className={s.movieInfo}>
                         <h3 className={s.movieTitle}>{movie.title}</h3>
                     </div>
+
                 </article>
             ))}
         </div>

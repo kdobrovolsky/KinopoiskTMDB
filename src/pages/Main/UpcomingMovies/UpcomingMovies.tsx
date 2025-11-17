@@ -1,6 +1,7 @@
 import s from '/src/pages/Main/Main.module.css'
 import {useNavigate} from "react-router-dom";
 import {useFetchUpcomingQuery} from "@/features/api/tmdbApi.ts";
+import {MovieCard} from "@/pages/CategoryMovies/MovieCard/MovieCard.tsx";
 
 export const UpcomingMovies = () => {
     const {data} = useFetchUpcomingQuery()
@@ -20,37 +21,7 @@ export const UpcomingMovies = () => {
                 </button>
             </div>
 
-            <div className={s.moviesGrid}>
-                {data?.results.slice(0, 6).map((movie) => (
-                    <article key={movie.id} className={s.movieCard}>
-                        {movie.poster_path ? (
-                            <img
-                                src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
-                                alt={movie.title}
-                                className={s.moviePoster}
-                                loading="lazy"
-                            />
-                        ) : (
-                            <div className={s.posterPlaceholder}>
-                                No Image
-                            </div>
-                        )}
-
-
-                        <div
-                            className={`${s.movieRatingOverlay} ${
-                                movie.vote_average >= 7 ? s.high :
-                                    movie.vote_average >= 5 ? s.medium : s.low
-                            }`}
-                        >
-                            {movie.vote_average.toFixed(1)}
-                        </div>
-                        <div className={s.movieInfo}>
-                            <h3 className={s.movieTitle}>{movie.title}</h3>
-                        </div>
-                    </article>
-                ))}
-            </div>
+            <MovieCard data={data} className={s.moviesGrid} limit={6} />
         </section>
     )
 }
