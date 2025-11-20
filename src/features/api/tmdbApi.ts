@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import type {
-  MovieCreditsResponse,
-  SearchMoviesParams,
+  MovieCreditsResponse, MovieDetailsResponse,
+  SearchMoviesParams, SimilarMovie, SimilarMoviesResponse,
   TMDBMoviesResponse,
   TMDBUpcomingResponse
 } from "@/features/api/tmdbApi.types.ts";
@@ -44,11 +44,18 @@ export const tmdbApi = createApi({
     fetchCredits: build.query<MovieCreditsResponse, number>({
       query: (movie_id) => `movie/${movie_id}/credits`,
     }),
-    fetchSimilar: build.query<MovieCreditsResponse, number>({
+    fetchSimilar: build.query<SimilarMoviesResponse, number>({
       query: (movie_id) => `movie/${movie_id}/similar`,
     }),
+    fetchMovieDetails: build.query<MovieDetailsResponse, number>({
+      query: (movie_id) => `movie/${movie_id}`,
+    }),
+
   }),
 });
 
 
-export const {useFetchPopularMoviesQuery,useFetchNowPlayingQuery,useFetchTopRatedQuery,useFetchUpcomingQuery,useLazyFetchSearchMoviesQuery} = tmdbApi
+export const {
+  useFetchPopularMoviesQuery,useFetchNowPlayingQuery,
+  useFetchTopRatedQuery,useFetchUpcomingQuery,useLazyFetchSearchMoviesQuery,
+  useFetchCreditsQuery,useFetchSimilarQuery,useFetchMovieDetailsQuery} = tmdbApi
