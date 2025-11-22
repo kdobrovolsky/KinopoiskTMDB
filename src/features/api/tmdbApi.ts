@@ -1,7 +1,10 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
 import type {
-  MovieCreditsResponse, MovieDetailsResponse,
-  SearchMoviesParams, SimilarMovie, SimilarMoviesResponse,
+  DiscoverMoviesParams, GenresResponse,
+  MovieCreditsResponse,
+  MovieDetailsResponse,
+  SearchMoviesParams,
+  SimilarMoviesResponse,
   TMDBMoviesResponse,
   TMDBUpcomingResponse
 } from "@/features/api/tmdbApi.types.ts";
@@ -50,6 +53,18 @@ export const tmdbApi = createApi({
     fetchMovieDetails: build.query<MovieDetailsResponse, number>({
       query: (movie_id) => `movie/${movie_id}`,
     }),
+    fetchMovieList: build.query<GenresResponse, void>({
+      query: () => `genre/movie/list`,
+    }),
+
+    fetchDiscoverMovies: build.query<TMDBMoviesResponse, DiscoverMoviesParams>({
+      query: (params) =>{
+        return {
+          url: `discover/movie`,
+          params
+        }
+      }
+    }),
 
   }),
 });
@@ -58,4 +73,4 @@ export const tmdbApi = createApi({
 export const {
   useFetchPopularMoviesQuery,useFetchNowPlayingQuery,
   useFetchTopRatedQuery,useFetchUpcomingQuery,useLazyFetchSearchMoviesQuery,
-  useFetchCreditsQuery,useFetchSimilarQuery,useFetchMovieDetailsQuery} = tmdbApi
+  useFetchCreditsQuery,useFetchSimilarQuery,useFetchMovieDetailsQuery, useFetchDiscoverMoviesQuery,useFetchMovieListQuery} = tmdbApi

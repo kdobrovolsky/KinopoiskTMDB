@@ -1,0 +1,88 @@
+.container {
+    display: flex;
+    gap: 24px;
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.filters {
+    width: 280px;
+    flex-shrink: 0;
+    background: var(--header-bg);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    height: fit-content;
+}
+
+.results {
+    flex: 1;
+}
+
+.filterGroup {
+    margin-bottom: 24px;
+}
+
+.filterTitle {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #000;
+}
+
+.select {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    background: var(--header-bg);
+    color: white;
+}
+
+.ratingValue {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.genresGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.genreButton {
+    padding: 6px 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 20px;
+    background: white;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.genreButton:hover {
+    background: #f5f5f5;
+}
+
+.genreButtonActive {
+    background: #000;
+    color: white;
+    border-color: #000;
+}
+
+.resetButton {
+    width: 100%;
+    padding: 10px;
+    background: #f5f5f5;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+.resetButton:hover {
+    background: #e0e0e0;
+}
