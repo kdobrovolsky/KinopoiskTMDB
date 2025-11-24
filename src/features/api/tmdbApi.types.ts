@@ -62,7 +62,6 @@ export type FavoriteMovie = {
   voteAverage: number;
 };
 
-
 export type TMDBUpcomingResponse = {
   dates: {
     maximum: string;
@@ -75,10 +74,10 @@ export type TMDBUpcomingResponse = {
 };
 
 export const categoriesTitle: Record<string, string> = {
-  'popular': 'Popular Movies',
+  popular: 'Popular Movies',
   'top-rated': 'Top Rated Movies',
-  'upcoming': 'Upcoming Movies',
-  'now-playing': 'Now Playing Movies'
+  upcoming: 'Upcoming Movies',
+  'now-playing': 'Now Playing Movies',
 };
 
 // Тип для актера в фильме
@@ -95,7 +94,7 @@ export type MovieCast = {
   character: string;
   credit_id: string;
   order: number;
-}
+};
 
 // Тип для члена съемочной группы
 export type MovieCrew = {
@@ -110,14 +109,14 @@ export type MovieCrew = {
   credit_id: string;
   department: string;
   job: string;
-}
+};
 
 // Основной тип ответа для актеров и съемочной группы
 export type MovieCreditsResponse = {
   id: number;
   cast: MovieCast[];
   crew: MovieCrew[];
-}
+};
 
 // Тип для похожего фильма
 export type SimilarMovie = {
@@ -135,7 +134,7 @@ export type SimilarMovie = {
   video: boolean;
   vote_average: number;
   vote_count: number;
-}
+};
 
 // Тип ответа для похожих фильмов
 export type SimilarMoviesResponse = {
@@ -143,8 +142,7 @@ export type SimilarMoviesResponse = {
   results: SimilarMovie[];
   total_pages: number;
   total_results: number;
-}
-
+};
 
 export type MovieDetailsResponse = {
   adult: boolean;
@@ -187,8 +185,7 @@ export type MovieDetailsResponse = {
   video: boolean;
   vote_average: number;
   vote_count: number;
-}
-
+};
 
 export type DiscoverMoviesParams = {
   sort_by?: string;
@@ -196,12 +193,13 @@ export type DiscoverMoviesParams = {
   'vote_average.gte'?: string;
   'vote_average.lte'?: string;
   page?: number;
-
-}
+};
 
 export type GenresResponse = {
   genres: Array<{
     id: number;
     name: string;
   }>;
-}
+};
+
+export type RequestStatus = 'idle' | 'loading' | 'succeeded' | 'failed';
