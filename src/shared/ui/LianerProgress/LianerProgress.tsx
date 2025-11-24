@@ -4,7 +4,7 @@ import s from './LianerProgress.module.css';
 
 export const LianerProgress = () => {
   const status = useSelector(selectAppStatus);
-  console.log('Current status:', status);
+
   if (status !== 'loading') {
     return null;
   }

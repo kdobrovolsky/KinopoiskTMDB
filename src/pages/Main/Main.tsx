@@ -18,6 +18,7 @@ export const Main = () => {
   const { data: upcomingMovies } = useFetchUpcomingQuery();
   const { data: topRatedMovies } = useFetchTopRatedQuery();
   const { data: popularMovies } = useFetchPopularMoviesQuery();
+
   return (
     <div className={s.container}>
       <MainHeader data={popularMovies} />

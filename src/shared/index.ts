@@ -8,3 +8,5 @@ export { createAppSlice } from './utils/createAppSlice.ts';
 export { getPaginationPages } from './utils/getPaginationPages.ts';
 export * from './api/tmdbApi.ts';
 export * from './api/tmdbApi.types.ts';
+export { isErrorWithProperty } from './utils/isErrorWithProperty.ts';
+export { isErrorWithMessage } from './utils/isErrorWithMessage.ts';

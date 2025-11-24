@@ -1,4 +1,3 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import type {
   DiscoverMoviesParams,
   GenresResponse,
@@ -8,17 +7,9 @@ import type {
   SimilarMoviesResponse,
   TMDBMoviesResponse,
 } from '@/shared/api/tmdbApi.types.ts';
+import { baseApi } from '@/shared/api/baseApi/baseApi.ts';
 
-export const tmdbApi = createApi({
-  reducerPath: 'tmdbApi',
-  baseQuery: fetchBaseQuery({
-    baseUrl: import.meta.env.VITE_BASE_URL,
-    prepareHeaders: headers => {
-      headers.set('Authorization', `Bearer ${import.meta.env.VITE_ACCESS_TOKEN}`);
-      return headers;
-    },
-  }),
-  tagTypes: ['Movies', 'MovieDetails', 'Credits', 'Similar', 'Genres'],
+export const tmdbApi = baseApi.injectEndpoints({
   endpoints: build => ({
     fetchPopularMovies: build.query<TMDBMoviesResponse, number | void>({
       query: (page = 1) => {
