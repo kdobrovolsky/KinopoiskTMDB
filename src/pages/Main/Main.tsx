@@ -12,12 +12,19 @@ import {
   useFetchTopRatedQuery,
   useFetchUpcomingQuery,
 } from '@/features';
+import { MainPageSkeleton } from '@/pages/Main/MainSkeletons.tsx';
 
 export const Main = () => {
-  const { data: nowPlayingMovies } = useFetchNowPlayingQuery();
-  const { data: upcomingMovies } = useFetchUpcomingQuery();
-  const { data: topRatedMovies } = useFetchTopRatedQuery();
-  const { data: popularMovies } = useFetchPopularMoviesQuery();
+  const { data: nowPlayingMovies, isLoading: nowPlayingLoading } = useFetchNowPlayingQuery();
+  const { data: upcomingMovies, isLoading: upcomingLoading } = useFetchUpcomingQuery();
+  const { data: topRatedMovies, isLoading: topRatedLoading } = useFetchTopRatedQuery();
+  const { data: popularMovies, isLoading: popularLoading } = useFetchPopularMoviesQuery();
+
+  const isLoading = nowPlayingLoading || upcomingLoading || topRatedLoading || popularLoading;
+
+  if (isLoading) {
+    return <MainPageSkeleton />;
+  }
 
   return (
     <div className={s.container}>

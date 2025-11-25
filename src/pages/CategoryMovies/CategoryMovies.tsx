@@ -7,6 +7,7 @@ import { MOVIE_CATEGORIES } from '@/features';
 import { categoriesTitle } from '@/shared/api/tmdbApi.types.ts';
 import { MovieCard } from '@/entities/movie/ui';
 import { useCategoryData } from '@/shared/lib/hooks/useCategoryData.ts';
+import { CategoryPageSkeleton } from '@/pages/CategoryMovies/CategorySkeletons.tsx';
 
 export const CategoryMovies = () => {
   const navigate = useNavigate();
@@ -15,9 +16,15 @@ export const CategoryMovies = () => {
 
   const data = useCategoryData({ type, page });
 
+  const isLoading = !data;
+
   useEffect(() => {
     setPage(1);
   }, [type]);
+
+  if (isLoading) {
+    return <CategoryPageSkeleton />;
+  }
 
   return (
     <div className={s.container}>

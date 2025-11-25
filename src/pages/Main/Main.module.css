@@ -285,3 +285,50 @@
         height: 180px;
     }
 }
+
+
+/*Skeleton*/
+
+.headerSkeleton {
+    margin-bottom: 40px;
+
+}
+
+.heroSkeleton {
+    width: 100%;
+    border-radius: 12px;
+
+}
+
+.movieSection {
+    margin-bottom: 50px;
+
+}
+
+
+
+.movieGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+
+
+}
+
+.movieCardSkeleton {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+
+.posterSkeleton {
+    width: 100%;
+    border-radius: 8px;
+
+}
+
+.titleSkeleton {
+    border-radius: 4px;
+}
+

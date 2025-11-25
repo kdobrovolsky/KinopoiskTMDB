@@ -269,4 +269,120 @@
         padding: 0.3rem 0.5rem;
         font-size: 0.75rem;
     }
+
+
+
+
+}
+
+
+
+    /* Контейнер скелетона */
+.skeletonContainer {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Скелетон навигации */
+.navigationSkeleton {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.navButtonSkeleton {
+    height: 40px;
+    border-radius: 20px;
+}
+
+/* Скелетон заголовка */
+.titleSkeleton {
+    height: 40px;
+    width: 100px;
+    margin: 0 auto 30px auto;
+    border-radius: 8px;
+}
+
+/* Скелетон сетки фильмов */
+.moviesGridSkeleton {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.movieCardSkeleton {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.posterSkeleton {
+    width: 100%;
+    height: 300px;
+    border-radius: 12px;
+}
+
+.movieTitleSkeleton {
+    height: 20px;
+    border-radius: 4px;
+}
+
+.movieSubtitleSkeleton {
+    height: 16px;
+    width: 70%;
+    border-radius: 4px;
+}
+
+/* Скелетон пагинации */
+.paginationSkeleton {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.paginationButtonSkeleton {
+    height: 40px;
+    width: 40px;
+    border-radius: 8px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .moviesGridSkeleton {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 15px;
+    }
+
+    .posterSkeleton {
+        height: 220px;
+    }
+
+    .titleSkeleton {
+        width: 200px;
+        height: 32px;
+    }
+
+    .navigationSkeleton {
+        gap: 8px;
+    }
+
+    .navButtonSkeleton {
+        height: 36px;
+        width: 80px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .moviesGridSkeleton {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .posterSkeleton {
+        height: 200px;
+    }
 }
