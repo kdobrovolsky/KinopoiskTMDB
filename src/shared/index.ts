@@ -1,4 +1,3 @@
-export * from '@/shared/constants/constantsUi/constantsUi.ts';
 export * from './constants/moviesConstants/moviesConstants.ts';
 export { useFavorites } from './lib/hooks/useFavorites.ts';
 export { useCategoryData } from './lib/hooks/useCategoryData.ts';
@@ -10,3 +9,4 @@ export * from './api/tmdbApi.ts';
 export * from './api/tmdbApi.types.ts';
 export { isErrorWithProperty } from './utils/isErrorWithProperty.ts';
 export { isErrorWithMessage } from './utils/isErrorWithMessage.ts';
+export { baseApi } from './api/baseApi/baseApi.ts';

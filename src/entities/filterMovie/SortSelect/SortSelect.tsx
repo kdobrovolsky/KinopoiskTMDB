@@ -1,5 +1,5 @@
 import s from './SortSelect.module.css';
-import { SORT_OPTIONS } from '@/shared/constants/moviesConstants/moviesConstants.ts';
+import { SORT_OPTIONS } from '@/shared';
 
 type Props = {
   value: string;

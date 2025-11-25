@@ -4,10 +4,9 @@ import { useParams } from 'react-router';
 import { useEffect, useState } from 'react';
 import { Pagination } from '@/common';
 import { MOVIE_CATEGORIES } from '@/features';
-import { categoriesTitle } from '@/shared/api/tmdbApi.types.ts';
 import { MovieCard } from '@/entities/movie/ui';
-import { useCategoryData } from '@/shared/lib/hooks/useCategoryData.ts';
-import { CategoryPageSkeleton } from '@/pages/CategoryMovies/CategorySkeletons.tsx';
+import { categoriesTitle, useCategoryData } from '@/shared';
+import { CategorySkeleton } from '@/pages';
 
 export const CategoryMovies = () => {
   const navigate = useNavigate();
@@ -23,7 +22,7 @@ export const CategoryMovies = () => {
   }, [type]);
 
   if (isLoading) {
-    return <CategoryPageSkeleton />;
+    return <CategorySkeleton />;
   }
 
   return (

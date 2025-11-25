@@ -1,7 +1,7 @@
 import s from '/src/pages/Main/Main.module.css';
 import { useNavigate } from 'react-router-dom';
-import { MovieCard } from '@/entities/movie/ui/MovieCard/MovieCard.tsx';
-import type { TMDBMoviesResponse } from '@/shared/api/tmdbApi.types.ts';
+import { MovieCard } from '@/entities/movie/ui';
+import type { TMDBMoviesResponse } from '@/shared';
 
 type Props = {
   data: TMDBMoviesResponse | undefined;

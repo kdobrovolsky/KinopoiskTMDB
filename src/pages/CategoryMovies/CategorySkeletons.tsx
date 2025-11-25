@@ -2,7 +2,7 @@ import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import s from './CategoryMovies.module.css';
 
-export const CategoryPageSkeleton = () => {
+export const CategorySkeleton = () => {
   return (
     <SkeletonTheme baseColor='#f0f0f0' highlightColor='#e0e0e0'>
       <div className={s.skeletonContainer}>

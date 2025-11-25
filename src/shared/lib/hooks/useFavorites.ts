@@ -1,5 +1,5 @@
-import type { FavoriteMovie } from '@/shared/api/tmdbApi.types';
 import { useState, useEffect } from 'react';
+import type { FavoriteMovie } from '@/shared';
 
 export const useFavorites = () => {
   const [favorites, setFavorites] = useState<FavoriteMovie[]>([]);

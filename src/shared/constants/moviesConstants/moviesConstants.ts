@@ -23,3 +23,9 @@ export const SORT_OPTIONS = [
   { value: 'title.asc', label: 'Title (A-Z)' },
   { value: 'title.desc', label: 'Title (Z-A)' },
 ];
+
+export const RATING_THRESHOLDS = {
+  HIGH: 7,
+  MEDIUM: 5,
+  LOW: 0,
+} as const;

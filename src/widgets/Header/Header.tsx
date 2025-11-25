@@ -1,8 +1,8 @@
-import {Path} from '@/App/Routing/Routing.tsx';
+import { Path } from '@/App/Routing/Routing.tsx';
 import s from './Header.module.css';
-import {NavLink} from 'react-router-dom';
-import {TMDBLogo} from '@/widgets/Header/logo/TMDBLOGO.tsx';
-import {ThemeToggle} from '@/features/theme/ThemeToggle.tsx';
+import { NavLink } from 'react-router-dom';
+import { ThemeToggle } from '@/features';
+import { TMDBLogo } from '@/widgets';
 
 const navItems = [
   { to: Path.Main, label: 'Main' },

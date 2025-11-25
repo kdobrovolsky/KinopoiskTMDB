@@ -1,6 +1,7 @@
 import s from './Main.module.css';
 import {
   MainHeader,
+  MainSkeleton,
   NowPlayingMovies,
   PopularMovies,
   TopRatedMovies,
@@ -12,7 +13,6 @@ import {
   useFetchTopRatedQuery,
   useFetchUpcomingQuery,
 } from '@/features';
-import { MainPageSkeleton } from '@/pages/Main/MainSkeletons.tsx';
 
 export const Main = () => {
   const { data: nowPlayingMovies, isLoading: nowPlayingLoading } = useFetchNowPlayingQuery();
@@ -23,7 +23,7 @@ export const Main = () => {
   const isLoading = nowPlayingLoading || upcomingLoading || topRatedLoading || popularLoading;
 
   if (isLoading) {
-    return <MainPageSkeleton />;
+    return <MainSkeleton />;
   }
 
   return (

@@ -1,2 +1,2 @@
-export { ThemeProvider } from './themeProvider/themeProvider.tsx';
-export { useTheme } from './useTheme/useTheme.tsx';
+export * from './themeProvider/themeProvider.tsx';
+export * from './useTheme/useTheme.tsx';

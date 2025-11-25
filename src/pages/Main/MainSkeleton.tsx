@@ -2,7 +2,7 @@ import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import s from './Main.module.css';
 
-export const MainHeaderSkeleton = () => {
+export const MainSkeleton = () => {
   return (
     <div className={s.headerSkeleton}>
       <Skeleton height={800} className={s.heroSkeleton} />

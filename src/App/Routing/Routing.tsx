@@ -1,7 +1,13 @@
-import { CategoryMovies, Favorites, FilteredMovies, Main, Search } from '@/pages';
+import {
+  CategoryMovies,
+  Favorites,
+  FilteredMovies,
+  Main,
+  MovieDetails,
+  NotFound,
+  Search,
+} from '@/pages';
 import { Route, Routes } from 'react-router-dom';
-import { MovieDetails } from '@/pages/MovieDetails';
-import { NotFound } from '@/pages/NotFound/NotFound.tsx';
 
 export const Path = {
   Main: '/',

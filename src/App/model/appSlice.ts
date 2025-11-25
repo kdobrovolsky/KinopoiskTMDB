@@ -1,5 +1,5 @@
 import { createSlice, isFulfilled, isPending, isRejected } from '@reduxjs/toolkit';
-import type { LoadingState } from '@/shared/api/tmdbApi.types.ts';
+import type { LoadingState } from '@/shared';
 
 export const appSlice = createSlice({
   name: 'app',
