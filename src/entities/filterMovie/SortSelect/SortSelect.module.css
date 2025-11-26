@@ -6,14 +6,14 @@
     font-size: 16px;
     font-weight: 600;
     margin-bottom: 12px;
-    color: #000;
+    color: var(--text-primary);
 }
 
 .select {
     width: 100%;
     padding: 8px 12px;
-    border: 1px solid #e0e0e0;
+    border: 1px solid var(--border-color);
     border-radius: 6px;
     background: var(--header-bg);
-    color: white;
+    color: var(--text-secondary);
 }

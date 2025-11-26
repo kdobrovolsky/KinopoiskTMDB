@@ -3,14 +3,14 @@
 }
 
 .filterTitle {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 600;
     margin-bottom: 12px;
-    color: #000;
+    color: var(--text-primary);
 }
 
 .ratingValue {
     font-size: 14px;
-    color: #666;
+    color: var(--text-primary);
     margin-bottom: 8px;
 }

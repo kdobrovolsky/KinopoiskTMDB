@@ -42,7 +42,7 @@
     text-decoration: none;
     border-radius: var(--radius-md);
     font-weight: 600;
-    transition: var(--transition);
+    transition: var(--bg-secondary);
 }
 
 .homeLink:hover {

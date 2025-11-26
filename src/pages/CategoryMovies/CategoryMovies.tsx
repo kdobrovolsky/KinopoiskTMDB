@@ -39,7 +39,7 @@ export const CategoryMovies = () => {
         ))}
       </nav>
 
-      <h1 className={s.categoryTitle}>{categoriesTitle[type]}</h1>
+      <h2 className={s.categoryTitle}>{categoriesTitle[type]}</h2>
       <MovieCard data={data} />
       <Pagination currentPage={page} setCurrentPage={setPage} pagesCount={data?.total_pages || 1} />
     </div>

@@ -1,3 +1,5 @@
+/* ===== CSS RESET ===== */
+/* Убираем стандартные отступы и padding, задаем border-box для всех элементов */
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -5,118 +7,151 @@
 * {
   margin: 0;
   padding: 0;
-
 }
 
+/* Делаем высоту 100% для корректного растягивания layout */
 html, body {
   height: 100%;
 }
 
 body {
   line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased; /* Сглаживание шрифтов для читаемости */
 }
 
+/* Делаем медиа-элементы блочными и ограничиваем по ширине */
 img, picture, video, canvas, svg {
   display: block;
   max-width: 100%;
 }
 
+/* Наследуем шрифты для форм элементов */
 input, button, textarea, select {
   font: inherit;
 }
 
-p, h1, h2, h3, h4, h5, h6 {
-  overflow-wrap: break-word;
-}
-
+/* Изоляция контекста для избежания конфликтов */
 #root {
   isolation: isolate;
 }
 
-/* CSS Variables */
+/* ===== CSS VARIABLES (Светлая тема) ===== */
 :root {
-  /* Светлая тема (по умолчанию) */
-  --bg-primary: #fffdfd;
-  --bg-secondary: #f8f9fa;
-  --bg-tertiary: #e9ecef;
-  --text-primary: #000000;
-  --text-secondary: #495057;
-  --text-muted: #868e96;
-  --header-bg: #032541;
-  --footer-bg: #032541;
-  --accent-color: #01b4e4;
-  --accent-hover: #0099c3;
-  --success-color: #28a745;
-  --warning-color: #ffc107;
-  --danger-color: #dc3545;
-  --border-color: #dee2e6;
-  --border-light: #f1f3f4;
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  --transition: all 0.2s ease-in-out;
+  /* Цвета */
+  --bg-primary: #ffffff;           /* Основной фон страницы */
+  --bg-secondary: #f8f9fa;         /* Вторичный фон (карточки, sidebar) */
+  --text-primary: #000000;         /* Основной цвет текста */
+  --text-secondary: #495057;       /* Вторичный цвет текста */
+  --header-bg: #032541;            /* Фон хедера */
+  --accent-color: #01b4e4;         /* Акцентный цвет (кнопки, ссылки) */
+  --accent-hover: #0099c3;         /* Акцентный цвет при наведении */
+  --border-color: #dee2e6;         /* Цвет границ */
 
+  /* Тени */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);   /* Маленькая тень */
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);   /* Средняя тень */
+
+  /* Скругления */
+  --radius-md: 8px;                /* Среднее скругление углов */
+
+  /* Отступы */
+  --space-sm: 0.5rem;              /* Маленький отступ */
+  --space-md: 1rem;                /* Средний отступ */
 }
 
+/* ===== ТЕМНАЯ ТЕМА ===== */
 [data-theme="dark"] {
-  /* Темная тема */
-  --bg-primary: #0d253f;
-  --bg-secondary: #1c2e44;
-  --bg-tertiary: #2d4263;
-  --text-primary: #ffffff;
-  --text-secondary: #e8e8e8;
-  --text-muted: #6c757d;
-  --header-bg: #092f54;
-  --footer-bg: #092f54;
-  --accent-color: #90cea1;
-  --accent-hover: #7bbd8d;
-  --success-color: #51cf66;
-  --warning-color: #ffd43b;
-  --danger-color: #ff6b6b;
-  --border-color: #2d4263;
-  --border-light: #3a516e;
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3);
-  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.3);
+  --bg-primary: #0d253f;           /* Темный основной фон */
+  --bg-secondary: #1c2e44;         /* Темный вторичный фон */
+  --text-primary: #ffffff;         /* Светлый текст */
+  --text-secondary: #e8e8e8;       /* Светлый вторичный текст */
+  --header-bg: #092f54;            /* Темный фон хедера */
+  --accent-color: #90cea1;         /* Зеленый акцент для темной темы */
+  --accent-hover: #7bbd8d;         /* Зеленый акцент при наведении */
+  --border-color: #2d4263;         /* Темные границы */
 }
 
-/* Base styles */
+/* ===== БАЗОВЫЕ СТИЛИ ===== */
 body {
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-  sans-serif;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  min-height: 100vh;
+  background-color: var(--bg-primary);  /* Динамический фон из переменных */
+  color: var(--text-primary);           /* Динамический цвет текста */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  min-height: 100vh;                    /* Минимальная высота на весь экран */
 }
 
-
-/* Scrollbar styling */
+/* ===== КАСТОМНЫЙ СКРОЛЛБАР ===== */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 8px;                          /* Ширина скроллбара */
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--bg-secondary);
+  background: var(--bg-secondary);     /* Фон дорожки скроллбара */
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--accent-color);
-  border-radius: 4px;
+  background: var(--accent-color);     /* Цвет ползунка */
+  border-radius: 4px;                  /* Скругление ползунка */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-hover);
+  background: var(--accent-hover);     /* Цвет ползунка при наведении */
 }
 
-/* Responsive */
+/* ===== СТИЛИ ФОРМ ===== */
+input, textarea, select {
+  background: var(--bg-primary);       /* Фон как у основной страницы */
+  border: 1px solid var(--border-color); /* Граница из переменных */
+  border-radius: var(--radius-md);     /* Скругление из переменных */
+  padding: var(--space-sm) var(--space-md); /* Отступы из переменных */
+  color: var(--text-primary);          /* Цвет текста как основной */
+}
+
+/* Фокус-состояние для доступности */
+input:focus, textarea:focus, select:focus {
+  outline: 2px solid var(--accent-color); /* Яркая обводка при фокусе */
+}
+
+/* Стили для placeholder */
+input::placeholder, textarea::placeholder {
+  color: var(--text-secondary);        /* Цвет плейсхолдера как вторичный текст */
+}
+
+/* ===== СТИЛИ КНОПОК ===== */
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: var(--radius-md);     /* Скругление из переменных */
+  padding: var(--space-sm) var(--space-md); /* Отступы из переменных */
+  background: var(--accent-color);     /* Акцентный фон */
+  color: white;                        /* Белый текст для контраста */
+  transition: background-color 0.2s;   /* Плавное изменение фона */
+}
+
+/* Ховер-эффект для кнопок */
+button:hover:not(:disabled) {
+  background: var(--accent-hover);     /* Темнее при наведении */
+}
+
+/* Состояние disabled */
+button:disabled {
+  opacity: 0.6;                        /* Полупрозрачность */
+  cursor: not-allowed;                 /* Курсор "недоступно" */
+}
+
+/* ===== LAYOUT КОНТЕЙНЕР ===== */
+.container {
+  max-width: 1200px;                   /* Максимальная ширина контента */
+  margin: 0 auto;                      /* Центрирование по горизонтали */
+  padding: 0 1rem;                     /* Боковые отступы */
+}
+
+/* ===== АДАПТИВ ДЛЯ ПЛАНШЕТОВ ===== */
 @media (max-width: 768px) {
   .container {
-    padding: 0 0.5rem;
+    padding: 0 0.75rem;                /* Уменьшаем боковые отступы */
+  }
+
+  body {
+    font-size: 14px;                   /* Уменьшаем базовый размер шрифта */
   }
 }
