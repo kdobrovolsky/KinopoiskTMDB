@@ -30,7 +30,7 @@
 }
 
 .logoText {
-    color: #01b4e4;
+    color: var(--text-primary);
     font-weight: bold;
     font-size: 1.25rem;
 }
@@ -44,10 +44,10 @@
 }
 
 .list li a {
-    color: #01b4e4;
+    color: var(--text-primary);
     text-decoration: none;
     padding: 8px 16px;
-    border-radius: 4px;
+    border-radius: 6px;
     transition: all 0.2s ease;
     font-weight: 500;
 }
@@ -57,7 +57,7 @@
 }
 
 .list li a.active {
-    background-color: #01b4e4;
+    background-color: var(--accent-color);
     color: white;
     font-weight: 600;
 }

@@ -46,6 +46,8 @@ input, button, textarea, select {
   --accent-color: #01b4e4;         /* Акцентный цвет (кнопки, ссылки) */
   --accent-hover: #0099c3;         /* Акцентный цвет при наведении */
   --border-color: #dee2e6;         /* Цвет границ */
+  --input-bg: #ffffff;             /* Фон инпутов */
+  --movieCard-bg: #90a0ab;
 
   /* Тени */
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);   /* Маленькая тень */
@@ -69,6 +71,8 @@ input, button, textarea, select {
   --accent-color: #90cea1;         /* Зеленый акцент для темной темы */
   --accent-hover: #7bbd8d;         /* Зеленый акцент при наведении */
   --border-color: #2d4263;         /* Темные границы */
+  --input-bg: #1c2e44;             /* Темный фон инпутов */
+  --movieCard-bg: #435370;
 }
 
 /* ===== БАЗОВЫЕ СТИЛИ ===== */
@@ -97,23 +101,31 @@ body {
   background: var(--accent-hover);     /* Цвет ползунка при наведении */
 }
 
-/* ===== СТИЛИ ФОРМ ===== */
+
 input, textarea, select {
-  background: var(--bg-primary);       /* Фон как у основной страницы */
+  background: var(--input-bg);         /* Специальный фон для инпутов */
   border: 1px solid var(--border-color); /* Граница из переменных */
   border-radius: var(--radius-md);     /* Скругление из переменных */
   padding: var(--space-sm) var(--space-md); /* Отступы из переменных */
   color: var(--text-primary);          /* Цвет текста как основной */
+  transition: all 0.2s ease;           /* Плавные переходы */
 }
 
 /* Фокус-состояние для доступности */
 input:focus, textarea:focus, select:focus {
   outline: 2px solid var(--accent-color); /* Яркая обводка при фокусе */
+  border-color: var(--accent-color);   /* Изменяем цвет границы */
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-color) 20%, transparent); /* Свечение */
 }
 
 /* Стили для placeholder */
 input::placeholder, textarea::placeholder {
   color: var(--text-secondary);        /* Цвет плейсхолдера как вторичный текст */
+}
+
+/* Стили для search input (крестик очистки) */
+input[type="search"]::-webkit-search-cancel-button {
+  cursor: pointer;
 }
 
 /* ===== СТИЛИ КНОПОК ===== */
@@ -153,5 +165,10 @@ button:disabled {
 
   body {
     font-size: 14px;                   /* Уменьшаем базовый размер шрифта */
+  }
+
+  /* Улучшаем тач-интерфейс на мобильных */
+  input, textarea, select {
+    font-size: 16px; /* Предотвращает зум в iOS */
   }
 }
