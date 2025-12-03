@@ -50,7 +50,7 @@
     cursor: pointer;
 }
 
-/* MOBILE BOTTOM SHEET */
+
 .mobileFilters {
     position: fixed;
     left: 0;
@@ -112,3 +112,103 @@
         padding: 18px;
     }
 }
+
+
+.filtersSkeleton {
+    width: 280px;
+    flex-shrink: 0;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.filterSectionSkeleton {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.filterOptionSkeleton {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.resetButtonSkeleton {
+    height: 40px;
+    width: 100%;
+    border-radius: 10px !important;
+}
+
+
+.resultsSkeleton {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.moviesGridSkeleton {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 20px;
+}
+
+.movieCardSkeleton {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.posterSkeleton {
+    width: 100%;
+    padding-top: 150%;
+    border-radius: 12px !important;
+}
+
+.movieTitleSkeleton {
+    height: 18px;
+    width: 80%;
+    border-radius: 6px !important;
+}
+
+.movieSubtitleSkeleton {
+    height: 14px;
+    width: 60%;
+    border-radius: 6px !important;
+}
+
+.paginationSkeleton {
+    display: flex;
+    gap: 10px;
+    margin: 0 auto;
+}
+
+.paginationButtonSkeleton {
+    height: 36px;
+    width: 36px;
+    border-radius: 8px !important;
+}
+
+
+@media (max-width: 1024px) {
+    .filtersSkeleton {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .posterSkeleton {
+        border-radius: 10px !important;
+    }
+}
+
+
+

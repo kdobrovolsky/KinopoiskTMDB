@@ -1,7 +1,6 @@
 import { useFetchDiscoverMoviesQuery, useFetchMovieListQuery } from '@/shared/api/tmdbApi.ts';
 import { useState } from 'react';
 import s from './FilteredMovies.module.css';
-
 import { Pagination } from '@/common';
 import { GenreList, RatingRange, SortSelect } from '@/pages/FilteredMovies';
 import { MovieCard } from '@/entities/movie/ui';
