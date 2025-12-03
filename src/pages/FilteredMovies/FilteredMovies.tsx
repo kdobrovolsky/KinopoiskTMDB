@@ -3,20 +3,20 @@ import { useState } from 'react';
 import s from './FilteredMovies.module.css';
 
 import { Pagination } from '@/common';
-import { GenreList, SortSelect, RatingRange } from '@/pages/FilteredMovies';
+import { GenreList, RatingRange, SortSelect } from '@/pages/FilteredMovies';
 import { MovieCard } from '@/entities/movie/ui';
 import { INITIAL_FILTERS } from '@/shared/constants/moviesConstants/moviesConstants.ts';
 import { FilteredSkeleton } from '@/pages/FilteredMovies/FilteredSkeletons.tsx';
+import { useScrollToTopOnChange } from '@/shared/lib/hooks';
 
 export const FilteredMovies = () => {
   const [filters, setFilters] = useState(INITIAL_FILTERS);
   const [isOpen, setIsOpen] = useState(false);
-
   const { data: discoverData, isLoading: discoverLoading } = useFetchDiscoverMoviesQuery(filters);
-
   const { data: genresData, isLoading: genresLoading } = useFetchMovieListQuery();
-
   const isLoading = discoverLoading || genresLoading;
+
+  useScrollToTopOnChange([filters.page]);
 
   if (isLoading) {
     return <FilteredSkeleton />;

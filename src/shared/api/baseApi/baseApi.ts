@@ -5,7 +5,7 @@ import { isErrorWithProperty } from '@/shared';
 export const baseApi = createApi({
   reducerPath: 'baseApi',
   tagTypes: ['Movies', 'MovieDetails', 'Credits', 'Similar', 'Genres'],
-  keepUnusedDataFor: 10,
+  keepUnusedDataFor: 300000,
   baseQuery: async (args, api, extraOptions) => {
     const result = await fetchBaseQuery({
       baseUrl: import.meta.env.VITE_BASE_URL,

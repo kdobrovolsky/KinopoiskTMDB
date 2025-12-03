@@ -7,15 +7,16 @@ import { MOVIE_CATEGORIES } from '@/features';
 import { MovieCard } from '@/entities/movie/ui';
 import { categoriesTitle, useCategoryData } from '@/shared';
 import { CategorySkeleton } from '@/pages';
+import { useScrollToTopOnChange } from '@/shared/lib/hooks';
 
 export const CategoryMovies = () => {
   const navigate = useNavigate();
   const { type = 'popular' } = useParams();
   const [page, setPage] = useState(1);
-
   const data = useCategoryData({ type, page });
-
   const isLoading = !data;
+
+  useScrollToTopOnChange([page, type]); //кастомный хук для скролла вверх при переходе по пагинации
 
   useEffect(() => {
     setPage(1);
