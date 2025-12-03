@@ -1,60 +1,97 @@
-
 .similarSection {
     margin-top: 60px;
 }
 
+.sectionTitle {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 28px;
+    color: var(--text-primary);
+}
+
+/* Сетка похожих фильмов */
 .similarGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 24px;
 }
 
-
+/* Карточка */
+.similarCard {
+    background: var(--bg-secondary);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    cursor: pointer;
+}
 
 .similarCard:hover {
-    transform: translateY(-5px);
-
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
 }
 
+/* Постер */
 .similarImageContainer {
     width: 100%;
-    border-radius: 15px;
-    height: 250px;
+    height: 240px;
+    border-radius: 16px 16px 0 0;
     overflow: hidden;
-    margin-top: 30px ;
+    background: var(--bg-primary);
 }
 
 .similarImage {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
 }
 
+/* Плейсхолдер */
 .similarPlaceholder {
     width: 100%;
     height: 100%;
-    background: var(--text-secondary);
+    background: var(--accent-light);
+    color: var(--text-primary);
+
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--text-secondary);
+
     font-weight: 600;
+    font-size: 0.95rem;
 }
 
+/* Текстовая информация */
 .similarInfo {
-    padding: 10px;
+    padding: 14px 12px 16px;
 }
 
 .similarTitle {
-    font-size: 1.2rem;
+    font-size: 1.05rem;
     font-weight: 600;
-    margin: 0 0 8px 0;
+    margin: 0 0 6px 0;
     color: var(--text-primary);
-    line-height: 1.3;
+    line-height: 1.32;
 }
 
 .similarYear {
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: var(--text-secondary);
     margin: 0;
+}
+
+/* Адаптив */
+@media (max-width: 600px) {
+    .similarImageContainer {
+        height: 200px;
+    }
+
+    .similarInfo {
+        padding: 12px;
+    }
+
+    .similarTitle {
+        font-size: 1rem;
+    }
 }

@@ -42,7 +42,8 @@
     text-decoration: none;
     border-radius: var(--radius-md);
     font-weight: 600;
-    transition: var(--bg-secondary);
+
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .homeLink:hover {

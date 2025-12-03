@@ -3,6 +3,7 @@
     background: var(--bg-primary);
 }
 
+
 .welcomeSection {
     background-size: cover;
     background-position: center;
@@ -17,20 +18,14 @@
 .welcomeSection::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     background: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(2px);
 }
 
 .overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     background: linear-gradient(
             to bottom,
             transparent 0%,
@@ -61,8 +56,9 @@
 }
 
 
+
 .mainContent {
-    padding: 2rem 2rem;
+    padding: 2rem;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -83,10 +79,12 @@
     font-weight: 600;
 }
 
+
+
 .viewMoreButton {
     padding: 0.35rem 1.5rem;
-    background: var(--accent-hover);
-    color: var(--text-secondary);
+    background: var(--accent-color);
+    color: var(--text-primary);
     border: 1px solid var(--border-color);
     border-radius: 12px;
     font-weight: 500;
@@ -100,14 +98,12 @@
 .viewMoreButton::before {
     content: '';
     position: absolute;
-    top: 0;
+    inset: 0;
     left: -100%;
-    width: 100%;
-    height: 100%;
     background: linear-gradient(
             90deg,
             transparent,
-            rgba(255, 255, 255, 0.2),
+            rgba(255, 255, 255, 0.25),
             transparent
     );
     transition: left 0.5s ease;
@@ -115,11 +111,8 @@
 
 .viewMoreButton:hover {
     background: var(--accent-hover);
-    border-color:var(--border-color);
     transform: translateY(-2px);
-    box-shadow:
-            0 4px 15px rgba(0, 0, 0, 0.1),
-            inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 15px var(--shadow-sm);
 }
 
 .viewMoreButton:hover::before {
@@ -130,7 +123,7 @@
     transform: translateY(0);
 }
 
-/* Movies Grid */
+
 .moviesGrid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
@@ -141,10 +134,9 @@
     background: var(--bg-secondary);
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px var(--shadow-sm);
     transition: all 0.3s ease;
     cursor: pointer;
-    position: relative;
     border: 1px solid var(--border-color);
 }
 
@@ -174,7 +166,7 @@
     font-size: 0.9rem;
 }
 
-/* Responsive */
+
 @media (max-width: 768px) {
     .welcomeSection {
         height: 60vh;
@@ -187,10 +179,6 @@
 
     .subtitle {
         font-size: 1.1rem;
-    }
-
-    .searchForm {
-        flex-direction: column;
     }
 
     .mainContent {
@@ -231,47 +219,36 @@
 
 
 
-
 .headerSkeleton {
     margin-bottom: 40px;
-
 }
 
 .heroSkeleton {
     width: 100%;
     border-radius: 12px;
-
 }
 
 .movieSection {
     margin-bottom: 50px;
-
 }
-
-
 
 .movieGrid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
-
-
 }
 
 .movieCardSkeleton {
     display: flex;
     flex-direction: column;
     gap: 10px;
-
 }
 
 .posterSkeleton {
     width: 100%;
     border-radius: 8px;
-
 }
 
 .titleSkeleton {
     border-radius: 4px;
 }
-

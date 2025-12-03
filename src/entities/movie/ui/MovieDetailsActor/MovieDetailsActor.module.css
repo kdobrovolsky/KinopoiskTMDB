@@ -1,53 +1,84 @@
 .castSection {
     margin-top: 60px;
 }
+
+.sectionTitle {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 28px;
+    color: var(--text-primary);
+}
+
+/* Сетка актеров */
 .castGrid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 24px;
+    gap: 28px;
 }
 
+/* Контейнер под фото */
 .actorImageContainer {
-    width: 100%;
-    height: 250px;
-    overflow: hidden;
+    width: 160px;
+    height: 160px;
+
+    margin: 0 auto;
     border-radius: 50%;
-    margin-top: 30px ;
+    overflow: hidden;
+
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
 }
 
+/* Фото актера */
 .actorImage {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 50%;
-
+    display: block;
 }
 
+/* Плейсхолдер, если нет фото */
 .actorPlaceholder {
     width: 100%;
     height: 100%;
-    background: var(--text-secondary);
+    color: var(--text-primary);
+
+    background: var(--accent-light);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--text-primary);
+
     font-weight: 600;
+    font-size: 0.9rem;
 }
 
+/* Информация о актере */
 .actorInfo {
-    padding: 16px;
+    text-align: center;
+    margin-top: 14px;
 }
 
 .actorName {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-weight: 600;
-    margin: 0 0 8px 0;
-    color:var(--text-primary);
+    margin: 0 0 4px 0;
+    color: var(--text-primary);
 }
 
 .actorCharacter {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     color: var(--text-secondary);
-    margin: 0;
+}
 
+
+@media (max-width: 600px) {
+    .actorImageContainer {
+        width: 130px;
+        height: 130px;
+    }
+
+    .actorName {
+        font-size: 1rem;
+    }
 }

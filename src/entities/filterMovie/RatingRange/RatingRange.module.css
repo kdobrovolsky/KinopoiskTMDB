@@ -1,16 +1,28 @@
 .filterGroup {
-    margin-bottom: 24px;
+    margin-bottom: 28px;
 }
 
 .filterTitle {
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 600;
-    margin-bottom: 12px;
-    color: var(--text-primary);
+    margin-bottom: 10px;
+    color: var(--color-text-primary);
+    letter-spacing: 0.3px;
 }
 
 .ratingValue {
     font-size: 14px;
-    color: var(--text-primary);
-    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    margin-bottom: 12px;
+    padding: 4px 10px;
+
+    background: var(--color-accent-soft);
+    width: max-content;
+
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-light);
+
+    /* Лёгкий эффект */
+    box-shadow: var(--shadow-sm);
 }

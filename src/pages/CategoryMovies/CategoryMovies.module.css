@@ -4,6 +4,8 @@
     padding: 2rem 0;
 }
 
+
+
 .navigation {
     display: flex;
     justify-content: center;
@@ -39,6 +41,8 @@
     box-shadow: 0 4px 15px var(--shadow-sm);
 }
 
+
+
 .categoryTitle {
     text-align: center;
     font-size: 2rem;
@@ -46,6 +50,7 @@
     margin-bottom: 3rem;
     font-weight: 700;
 }
+
 
 .moviesGrid {
     display: grid;
@@ -55,6 +60,8 @@
     max-width: 1400px;
     margin: 0 auto;
 }
+
+
 
 .movieCard {
     position: relative;
@@ -72,15 +79,14 @@
     box-shadow: var(--shadow-sm);
 }
 
-.moviePoster {
+.moviePoster,
+.posterPlaceholder {
     width: 100%;
     height: 300px;
     object-fit: cover;
 }
 
 .posterPlaceholder {
-    width: 100%;
-    height: 300px;
     background: var(--text-primary);
     display: flex;
     align-items: center;
@@ -88,6 +94,8 @@
     color: var(--text-secondary);
     font-size: 1rem;
 }
+
+
 
 .movieRatingOverlay {
     position: absolute;
@@ -119,6 +127,8 @@
     background: rgba(255, 77, 77, 0.9);
 }
 
+
+
 .movieInfo {
     padding: 1.5rem;
 }
@@ -135,6 +145,47 @@
     overflow: hidden;
     min-height: 2.8em;
 }
+
+
+
+.favoriteButton {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+.movieCard:hover .favoriteButton {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.favoriteButton:hover {
+    background: rgba(96, 115, 238, 0.9);
+    transform: scale(1.1) !important;
+}
+
+.favoriteButton.active {
+    background: rgba(255, 255, 255, 0.9);
+    opacity: 1;
+    transform: scale(1);
+}
+
+
 
 @media (max-width: 1024px) {
     .moviesGrid {
@@ -184,44 +235,6 @@
     }
 }
 
-.favoriteButton {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 2.5rem;
-    height: 2.5rem;
-    cursor: pointer;
-    font-size: 1.2rem;
-    z-index: 3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    opacity: 0;
-    transform: scale(0.8);
-}
-
-.movieCard:hover .favoriteButton {
-    opacity: 1;
-    transform: scale(1);
-}
-
-.favoriteButton:hover {
-    background: rgba(96, 115, 238, 0.9);
-    transform: scale(1.1) !important;
-}
-
-.favoriteButton.active {
-    background: rgba(255, 255, 255, 0.9);
-    opacity: 1;
-    transform: scale(1);
-
-}
-
 @media (max-width: 480px) {
     .moviesGrid {
         grid-template-columns: repeat(2, 1fr);
@@ -251,20 +264,15 @@
         padding: 0.3rem 0.5rem;
         font-size: 0.75rem;
     }
-
-
 }
 
 
-
-    /* Контейнер скелетона */
 .skeletonContainer {
     padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* Скелетон навигации */
 .navigationSkeleton {
     display: flex;
     gap: 12px;
@@ -278,7 +286,6 @@
     border-radius: 30px;
 }
 
-/* Скелетон заголовка */
 .titleSkeleton {
     height: 40px;
     width: 100px;
@@ -286,7 +293,6 @@
     border-radius: 8px;
 }
 
-/* Скелетон сетки фильмов */
 .moviesGridSkeleton {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -317,7 +323,6 @@
     border-radius: 4px;
 }
 
-/* Скелетон пагинации */
 .paginationSkeleton {
     display: flex;
     justify-content: center;
@@ -330,7 +335,6 @@
     border-radius: 8px;
 }
 
-/* Адаптивность */
 @media (max-width: 768px) {
     .moviesGridSkeleton {
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));

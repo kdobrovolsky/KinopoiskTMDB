@@ -9,11 +9,34 @@
     color: var(--text-primary);
 }
 
+/* селект */
 .select {
     width: 100%;
-    padding: 8px 12px;
+    padding: 10px 14px;
+
+    background: var(--bg-secondary); /* вторичная поверхность */
     border: 1px solid var(--border-color);
-    border-radius: 6px;
-    background: var(--header-bg);
-    color: var(--text-secondary);
+    border-radius: var(--radius-md);
+
+    color: var(--text-primary);
+    font-size: 14px;
+
+    transition:
+            border-color 0.25s ease,
+            background 0.25s ease,
+            color 0.25s ease,
+            box-shadow 0.25s ease;
+}
+
+/* hover */
+.select:hover {
+    border-color: var(--accent-color);
+}
+
+/* focus */
+.select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow:
+            0 0 0 2px rgba(92, 169, 255, 0.25); /* rgb from accent */
 }

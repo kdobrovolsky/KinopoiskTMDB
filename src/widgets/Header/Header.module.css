@@ -1,12 +1,24 @@
-/* widgets/header/Header.module.css */
 .container {
-    background-color: var( --header-bg);
+    background-color: var(--color-bg-elevated);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-light);
     padding: 0 20px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
     z-index: 1000;
+    transition: background-color 0.25s ease, border-color 0.25s ease;
 }
+
+.container.scrolled {
+    background-color: rgba(20, 28, 46, 0.85); /* вторичный фон */
+    border-bottom-color: var(--border-dark);
+}
+
+[data-theme="dark"] .container.scrolled {
+    background-color: rgba(20, 28, 46, 0.85);
+}
+
 
 .headerContent {
     display: flex;
@@ -14,15 +26,16 @@
     justify-content: space-between;
     max-width: 1200px;
     margin: 0 auto;
-    height: 70px;
+    height: 72px;
 }
+
 
 .logo {
     display: flex;
     align-items: center;
     text-decoration: none;
     gap: 12px;
-    transition: opacity 0.2s;
+    transition: opacity 0.25s;
 }
 
 .logo:hover {
@@ -30,9 +43,10 @@
 }
 
 .logoText {
-    color: var(--text-primary);
-    font-weight: bold;
+    color: var(--color-text-primary);
+    font-weight: 600;
     font-size: 1.25rem;
+    letter-spacing: 0.3px;
 }
 
 .list {
@@ -40,33 +54,124 @@
     list-style: none;
     margin: 0;
     padding: 0;
-    gap: 24px;
+    gap: 20px;
 }
 
-.list li a {
-    color: var(--text-primary);
+.link {
+    color: var(--color-text-primary);
     text-decoration: none;
-    padding: 8px 16px;
-    border-radius: 6px;
-    transition: all 0.2s ease;
+    padding: 8px 14px;
+    border-radius: var(--radius-md);
+    transition: background-color 0.25s ease, color 0.25s ease, opacity 0.25s ease;
     font-weight: 500;
+    opacity: 0.85;
 }
 
-.list li a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+.link:hover:not(.active) {
+    opacity: 1;
+    background-color: var(--color-accent-soft);
 }
 
-.list li a.active {
-    background-color: var(--accent-color);
-    color: white;
+
+.active {
+    background-color: var(--color-accent);
+    color: #fff !important;
+    opacity: 1;
+    font-weight: 600;
+    box-shadow: 0 0 10px var(--color-accent-soft);
+}
+
+
+.burger {
+    display: none;
+    width: 28px;
+    height: 22px;
+    position: relative;
+    cursor: pointer;
+}
+
+.burger span {
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background-color: var(--color-text-primary);
+    border-radius: 2px;
+    transition: 0.3s ease;
+}
+
+.burger span:nth-child(1) { top: 0; }
+.burger span:nth-child(2) { top: 9px; }
+.burger span:nth-child(3) { bottom: 0; }
+
+
+.burger.open span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+.burger.open span:nth-child(2) {
+    opacity: 0;
+}
+.burger.open span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+
+.mobileMenu {
+    position: absolute;
+    top: 72px;
+    right: 0;
+    width: 100%;
+    background-color: var(--color-bg-elevated);
+    backdrop-filter: blur(12px);
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--border-light);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    animation: menuFade 0.25s ease;
+    z-index: 900;
+}
+
+@keyframes menuFade {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.mobileMenu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mobileMenu li {
+    width: 100%;
+}
+
+.mobileLink {
+    display: block;
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    color: var(--color-text-primary);
+    font-weight: 500;
+    transition: background 0.25s ease, color 0.25s ease;
+}
+
+.mobileLink:hover:not(.active) {
+    background: var(--color-accent-soft);
+}
+
+.mobileLink.active {
+    background: var(--color-accent);
+    color: #fff !important;
+    box-shadow: 0 0 8px var(--color-accent-soft);
     font-weight: 600;
 }
 
-/* Мобильная версия */
+
 @media (max-width: 768px) {
     .headerContent {
         height: 60px;
-        padding: 0 16px;
     }
 
     .logoText {
@@ -74,11 +179,23 @@
     }
 
     .list {
-        gap: 12px;
+        display: none;
     }
 
-    .list li a {
-        padding: 6px 12px;
-        font-size: 0.9rem;
+
+    .burger {
+        display: block;
+    }
+
+    .link {
+        padding: 6px 10px;
+        font-size: 0.88rem;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .headerContent {
+        height: 56px;
     }
 }
