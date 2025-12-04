@@ -21,10 +21,7 @@ export default defineConfig({
       },
     },
   },
-  // Для совместимости с некоторыми библиотеками
-  define: {
-    'process.env': process.env,
-  },
+
   server: {
     port: 3000,
   },
