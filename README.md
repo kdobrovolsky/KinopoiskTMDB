@@ -1,48 +1,51 @@
-🎬 Kinopoisk TMDB
+# 🎬 Kinopoisk TMDB — Movie Explorer
 
-A movie discovery web app built with React + TypeScript + RTK Query using FSD architecture and deployed on Vercel.
+A modern movie discovery app built with **React**, **TypeScript**, **RTK Query**, and **Feature-Sliced Design**, styled with **CSS Modules** and deployed to **Vercel**.
 
-<p align="left"> <img src="https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=white"/> <img src="https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white"/> <img src="https://img.shields.io/badge/Redux Toolkit-RTK Query-764ABC?style=for-the-badge&logo=redux&logoColor=white"/> <img src="https://img.shields.io/badge/Vercel-Deployed-000000?style=for-the-badge&logo=vercel&logoColor=white"/> </p>
+👉 **Live Demo:** https://pet-project-kinopoisk.vercel.app/
 
-🔗 Live Demo: https://pet-project-kinopoisk.vercel.app/
+---
 
-✨ Features
+## 🌟 Features
 
-✔️ Movie categories (popular, trending, top-rated)
-✔️ Movie search
-✔️ Filters: genres, rating range, sorting
-✔️ Responsive filter panel
-✔️ Movie details: description, genres, trailers, similar movies
-✔️ Skeleton loading
-✔️ Dark / light theme
-✔️ Full responsiveness
+- 🔎 Browse movie categories (Popular, Trending, Top Rated)  
+- 🎯 Advanced filters: genres, rating range, sorting  
+- 📱 Fully responsive and adaptive layout  
+- 🧩 Mobile-friendly filter panel  
+- 🎥 Movie details: description, cast, trailers, similar movies  
+- 💡 Light / Dark mode  
+- ⚡ Skeleton loading states  
+- 🚀 Super-fast API requests via RTK Query  
 
-🧩 Tech Stack
+---
 
-React 19 + TypeScript
+## 🛠 Tech Stack
 
-Redux Toolkit (Slices & RTK Query)
+- **React 19 + TypeScript**
+- **Redux Toolkit (Slices + RTK Query)**
+- **React Router v7**
+- **CSS Modules**
+- **Feature-Sliced Design (FSD)**
+- **Prettier**
+- **Vercel Deployment**
 
-React Router v7
+---
 
-CSS Modules
+## 🧱 Project Architecture (FSD)
 
-Feature-Sliced Design (FSD)
-
-Prettier
-
-Vercel
-
-📁 Project Architecture (FSD)
 src/
- ├── app/         # App initialization
- ├── pages/       # Application pages
- ├── widgets/     # Large UI blocks (Header, FilterPanel, etc.)
- ├── features/    # Functional features (filters, search, sorting)
- ├── entities/    # Core domain entities (Movie, Genre, Person)
- └── shared/      # UI components, helpers, utils
+├── app/ # App initialization, providers
+├── pages/ # Route-level pages
+├── widgets/ # Layout-level UI blocks (Header, FilterPanel)
+├── features/ # User interactions (filters, search, sorting)
+├── entities/ # Domain entities (Movie, Genre)
+└── shared/ # UI components, helpers, config, styles
 
-🚀 Installation & Setup
+---
+
+## 🚀 Getting Started
+
+```bash
 git clone https://github.com/USERNAME/REPO.git
 cd REPO
 pnpm install
